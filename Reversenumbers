@@ -1,0 +1,8 @@
+number=(input("Enter a number: "))
+reversed_number=("")
+for i in number:
+    reversed_number=i+reversed_number
+
+print("Original nummber:", number)
+print("Reversed number:", reversed_number)
+
