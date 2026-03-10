@@ -8,10 +8,10 @@ class Employee:
 
 def create_obj():
     print("Making Object. . .")
-    obj=Employee()
+    obj1=Employee()
     print("function end. . .")
-    return obj
+    return obj1
 
 print("Calling create_obj() function. . .")
-obj=create_obj
+obj=create_obj()
 print("Program End. . .")
