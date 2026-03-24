@@ -1,3 +1,4 @@
+
 string=input("Enter a string: ")
 string2=("")
 for i in string:
