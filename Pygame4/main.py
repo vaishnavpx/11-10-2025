@@ -52,9 +52,10 @@ while running:
             running=False
 
     if not won:
-        keys=pygame.key.get_pressed
-        x_change=keys[pygame.K_RIGHT]-keys[pygame.K_LEFT]*MOVEMENT_SPEED
-        y_change=keys[pygame.K_DOWN]-keys[pygame.K_UP]*MOVEMENT_SPEED
+        keys=pygame.key.get_pressed()
+        x_change=(keys[pygame.K_RIGHT]-keys[pygame.K_LEFT])*MOVEMENT_SPEED
+        y_change=(keys[pygame.K_DOWN]-keys[pygame.K_UP])*MOVEMENT_SPEED
+        sprite1.move(x_change,y_change)
 
         if sprite1.rect.colliderect(sprite2.rect):
             all_sprites.remove(sprite2)
