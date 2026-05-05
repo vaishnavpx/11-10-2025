@@ -19,11 +19,11 @@ WHITE=pygame.Color("white")
 #Sprite class representing the moving object
 class Sprite(pygame.sprite.Sprite):
     def __init__(self,color,height,width):
-        super.init()
+        super().__init__()
         self.image=pygame.Surface([width,height])
         self.image.fill(color)
         self.rect=self.image.get_rect()
-        self.velociy=[random.choice([-1,1]),random.choice([-1,1])]
+        self.velocity=[random.choice([-1,1]),random.choice([-1,1])]
 
     def update(self):
         self.rect.move_ip(self.velocity)
@@ -71,5 +71,5 @@ while not exit:
     screen.fill(bg_color)
     all_sprites_list.draw(screen)
     pygame.display.flip()
-    clock.click(240)
+    clock.tick(240)
     pygame.quit()
