@@ -23,7 +23,7 @@ pygame.display.set_caption("Space Invaders")
 icon=pygame.image.load("ufo.png")
 pygame.display.set_icon(icon)
 
-playerImg=pygame.image.load("ufo.png")
+playerImg=pygame.image.load("player.png")
 playerX=PLAYER_START_X
 playerY=PLAYER_START_Y
 playerX_change=0
@@ -42,7 +42,7 @@ for i in range(num_of_enemies):
     enemyX_change.append(ENEMY_SPEED_X)
     enemyY_change.append(ENEMY_SPEED_Y)
 
-bulletImg=pygame.image.load("bullet.jpg")
+bulletImg=pygame.image.load("bullet.png")
 bulletX=0
 bulletY=PLAYER_START_Y
 bulletX_change=0
@@ -58,7 +58,7 @@ over_font=pygame.font.Font("freesansbold.ttf",64)
 
 def show_score(x,y):
     score=font.render("Score : "+str(score_value),True,(255,255,255))
-    screen.blit(score(x,y))
+    screen.blit(score,(x,y))
 
 def game_over_text():
     # Display the game over text
@@ -112,11 +112,11 @@ while running:
         enemyX[i]+=enemyX_change[i]
         if enemyX[i]<=0 or enemyX[i]>=SCREEN_WIDTH-64:
             enemyX_change[i]*=-1
-            enemyY[i]+=enemyY_change
+            enemyY[i]+=enemyY_change[i]
 
         if isCollision(enemyX[i],enemyY[i],bulletX,bulletY):
             bulletY=PLAYER_START_Y
-            bullet_state-"ready"
+            bullet_state="ready"
             score_value+=1
             enemyX[i]=random.randint(0,SCREEN_WIDTH-64)
             enemyY[i]=random.randint(ENEMY_START_Y_MIN,ENEMY_START_Y_MAX)
