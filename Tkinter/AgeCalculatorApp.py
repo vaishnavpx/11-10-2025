@@ -2,7 +2,7 @@ import datetime
 from tkinter import *
 
 root = Tk()
-root.title("Age Calculator App")  # Fixed: Use parentheses, not equals sign
+root.title("Age Calculator App")
 root.geometry("400x400")
 
 year_lbl = Label(
@@ -14,14 +14,14 @@ year_lbl = Label(
     width=100,
 )
 year_lbl.pack()
-year_entry = Entry(root, width=30)  # Fixed: Changed variable name to year_entry
+year_entry = Entry(root, width=30)
 year_entry.pack(pady=10)
 
 month_lbl = Label(root, text="Enter your birth month", bg="#3895d3", width=400)
 month_lbl.pack(pady=10)
 month_entry = Entry(
     root, width=30
-)  # Fixed: Changed variable name to month_entry
+)
 month_entry.pack(pady=10)
 
 day_lbl = Label(
@@ -33,7 +33,7 @@ day_lbl = Label(
     width=100,
 )
 day_lbl.pack()
-day_entry = Entry(root, width=30)  # Fixed: Changed variable name to day_entry
+day_entry = Entry(root, width=30)
 day_entry.pack(pady=10)
 
 text_box = Text(root, height=1.5, width=45)
@@ -41,7 +41,6 @@ text_box.pack(pady=10)
 
 
 def display():
-    # Fixed: Read from the entry widgets using the new distinct names
     y = int(year_entry.get().strip())
     m = int(month_entry.get().strip())
     d = int(day_entry.get().strip())
