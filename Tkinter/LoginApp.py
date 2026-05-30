@@ -23,3 +23,5 @@ textbox=Text(bg="#BEBEBE",fg="black")
 btn=Button(text="Create Account",command=display,bg="red")
 frame.place(x=20,y=0)
 lbl1.place(x=20,y=20)
+
+root.mainloop()
