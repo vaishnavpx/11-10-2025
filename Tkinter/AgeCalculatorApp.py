@@ -2,62 +2,60 @@ import datetime
 from tkinter import *
 
 root = Tk()
-root.title("Age Calculator App")
+root.title("Interest Calculator App")
 root.geometry("400x400")
 
-year_lbl = Label(
+p_lbl = Label(
     root,
-    text="Enter your birth year",
+    text="Enter principal amount",
     fg="white",
     bg="#072f5f",
     height=1,
     width=100,
 )
-year_lbl.pack()
-year_entry = Entry(root, width=30)
-year_entry.pack(pady=10)
+p_lbl.pack()
+p_entry = Entry(root, width=30)
+p_entry.pack(pady=10)
 
-month_lbl = Label(root, text="Enter your birth month", bg="#3895d3", width=400)
-month_lbl.pack(pady=10)
-month_entry = Entry(
+y_lbl = Label(root, text="Enter years", bg="#3895d3", width=400)
+y_lbl.pack(pady=10)
+y_entry = Entry(
     root, width=30
 )
-month_entry.pack(pady=10)
+y_entry.pack(pady=10)
 
-day_lbl = Label(
+r_lbl = Label(
     root,
-    text="Enter your birth day",
+    text="Enter interest rate as percentage",
     fg="white",
     bg="#072f5f",
     height=1,
     width=100,
 )
-day_lbl.pack()
-day_entry = Entry(root, width=30)
-day_entry.pack(pady=10)
+r_lbl.pack()
+r_entry = Entry(root, width=30)
+r_entry.pack(pady=10)
 
-text_box = Text(root, height=1.5, width=45)
+text_box = Text(root, height=3, width=45)
 text_box.pack(pady=10)
 
 
 def display():
-    y = int(year_entry.get().strip())
-    m = int(month_entry.get().strip())
-    d = int(day_entry.get().strip())
+    try:
+        p = float(p_entry.get().strip())
+        y = float(y_entry.get().strip())
+        r = float(r_entry.get().strip()) / 100.0
+    except ValueError:
+        text_box.delete("1.0", END)
+        text_box.insert(END, "Please enter valid numbers for principal, years, and rate.")
+        return
 
-    birth_date = datetime.date(y, m, d)
-    today = datetime.date.today()
-
-    age = today.year - birth_date.year
-    birthday_not_passed = (today.month, today.day) < (
-        birth_date.month,
-        birth_date.day,
-    )
-    final_age = age - birthday_not_passed
+    simple_i = p * y * r
+    amount = p * (1 + r) ** y
+    compound_i = amount - p
 
     text_box.delete("1.0", END)
-    message = f"Your age is: {final_age}"
-    text_box.insert(END, message)
+    text_box.insert(END, f"Simple Interest: {simple_i:.2f}\nCompound Interest: {compound_i:.2f}\nTotal Amount: {amount:.2f}")
 
 
 btn = Button(root, text="Begin", command=display, bg="#1261a0", fg="white")
