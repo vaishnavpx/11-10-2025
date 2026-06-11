@@ -2,7 +2,7 @@ from tkinter import *
 from datetime import date
 
 root=Tk()
-root.title=("Getting Started With Widgets")
+root.title=("Rock Paper Scissors")
 root.geometry("400x300")
 
 lbl=Label(root,text="Enter two numbers to be multiplied!",fg="white",bg="#072f5f",height=1,width=100)

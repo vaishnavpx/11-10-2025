@@ -71,7 +71,7 @@ class RestauraunOrderManagement:
         bg_width,bg_height=800,600
         canvas=tk.Canvas(root,width=bg_width,height=bg_height)
         canvas.pack()
-        original_image=tk.PhotoImage(file="Restaurauntpic.jpg")
+        original_image=tk.PhotoImage(file="Background.png")
         background_image=original_image.subsample(
             original_image.width()//bg_width,
             original_image.height()//bg_height)
